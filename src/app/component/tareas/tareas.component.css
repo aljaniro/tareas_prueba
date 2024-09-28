@@ -1,0 +1,182 @@
+:host {
+    display: block;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f4f8;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+  
+  form {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  }
+  
+  h2 {
+    color: #2c3e50;
+    margin-bottom: 25px;
+    font-size: 24px;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+  }
+  
+  .form-group {
+    margin-bottom: 25px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 8px;
+    color: #34495e;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  
+  input[type="text"],
+  input[type="date"],
+  input[type="number"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #bdc3c7;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+  }
+  
+  input[type="text"]:focus,
+  input[type="date"]:focus,
+  input[type="number"]:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+  }
+  
+  button {
+    margin-top: 10px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+  
+  button:last-child {
+    margin-right: 0;
+  }
+  
+  button.primary {
+    background-color: #3498db;
+    color: white;
+  }
+  
+  button.primary:hover {
+    background-color: #2980b9;
+  }
+  
+  button.secondary {
+    background-color: #2ecc71;
+    color: white;
+  }
+  
+  button.secondary:hover {
+    background-color: #27ae60;
+  }
+  
+  button.danger {
+    background-color: #e74c3c;
+    color: white;
+  }
+  
+  button.danger:hover {
+    background-color: #c0392b;
+  }
+  
+  button:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+  }
+  
+  .input-group {
+    display: flex;
+    margin-bottom: 15px;
+    align-items: center;
+  }
+  
+  .input-group input {
+    flex-grow: 1;
+    margin-right: 15px;
+  }
+  
+  .input-group button {
+    flex-shrink: 0;
+  }
+  
+  .personas-list {
+    margin-top: 30px;
+  }
+  
+  .persona-item {
+    background-color: #ecf0f1;
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .persona-item button {
+    background-color: #e74c3c;
+    color: white;
+    padding: 8px 15px;
+    font-size: 14px;
+  }
+  
+  .persona-item button:hover {
+    background-color: #c0392b;
+  }
+  
+  .habilidades {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #2c3e50;
+  }
+  
+  @media (max-width: 600px) {
+    :host {
+      padding: 15px;
+    }
+  
+    form {
+      padding: 20px;
+    }
+  
+    input[type="text"],
+    input[type="date"],
+    input[type="number"] {
+      font-size: 14px;
+    }
+  
+    button {
+      width: 100%;
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+  
+    .input-group {
+      flex-direction: column;
+    }
+  
+    .input-group input {
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+  }

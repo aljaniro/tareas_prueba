@@ -1,0 +1,110 @@
+<div class="tareas-lista">
+  <h2>Lista de Tareas</h2>
+
+  <div class="filtros">
+    <button
+      (click)="cambiarFiltro('todas')"
+      [class.active]="filtro === 'todas'"
+    >
+      Todas
+    </button>
+    <button
+      (click)="cambiarFiltro('completadas')"
+      [class.active]="filtro === 'completadas'"
+    >
+      Completadas
+    </button>
+    <button
+      (click)="cambiarFiltro('pendientes')"
+      [class.active]="filtro === 'pendientes'"
+    >
+      Pendientes
+    </button>
+  </div>
+
+  <ul class="tareas">
+    <li *ngFor="let tarea of tareasFiltradas; let TIndex = index">
+      <div class="tarea-info">
+        <h3>{{ tarea.id }}-{{ tarea.titulo }}</h3>
+        <p>Fecha Límite: {{ tarea.fechaLimite | date }}</p>
+        <button
+          *ngIf="filtro === 'pendientes'"
+          type="button"
+          class="btn btn-primary"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          (click)="agrega(tarea.id)"
+        >
+          agregar persona
+        </button>
+      </div>
+
+      <!-- Mostrar el botón solo si el filtro es 'pendientes' -->
+      <button
+        class="btn btn-success"
+        *ngIf="filtro === 'pendientes'"
+        (click)="marcarComoCompletada(tarea.id)"
+      >
+        Marcar como Completada
+      </button>
+
+      <!-- Mostrar personas y habilidades -->
+      <div class="personas">
+        <h4>Personas Asignadas:</h4>
+        <ul>
+          <li *ngFor="let persona of tarea.personas; let pIndex = index">
+            <strong
+              >{{ persona.nombre }}
+              <i
+                class="fa-solid fa-trash"
+                (click)="eliminarPersonas(tarea.titulo, persona.nombre)"
+                aria-hidden="true"
+              ></i
+            ></strong>
+            (Edad: {{ persona.edad }})
+
+            <ul>
+              <li
+                *ngFor="
+                  let habilidad of persona.habilidades;
+                  let hIndex = index
+                "
+              >
+                {{ habilidad }}
+                <i
+                  class="fa-solid fa-x"
+                  (click)="
+                    eliminarHabilidad(tarea.titulo, persona.nombre, hIndex)
+                  "
+                ></i>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</div>
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <app-personas [ind]="ind"></app-personas>
+      </div>
+    </div>
+  </div>
+</div>

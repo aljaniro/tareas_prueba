@@ -1,0 +1,164 @@
+/* Estilo general para el contenedor de la lista de tareas */
+.tareas-lista {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff; /* Fondo blanco para contraste */
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para el encabezado */
+.tareas-lista h2 {
+    text-align: center;
+    color: #4A90E2; /* Color azul vibrante */
+    font-size: 28px;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para los filtros */
+.filtros {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.filtros button {
+    background-color: #FF6F61; /* Color coral */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.filtros button:hover {
+    background-color: #FF4C3B; /* Color coral más oscuro */
+    transform: scale(1.05); /* Efecto de aumento al pasar el mouse */
+}
+
+.filtros button.active {
+    background-color: #D94F3D; /* Color coral más intenso */
+}
+
+/* Estilo para la lista de tareas */
+.tareas {
+    list-style-type: none;
+    padding: 0;
+}
+
+.tareas li {
+    background-color: #F0F8FF; /* Fondo azul claro */
+    border: 1px solid #B0E0E6; /* Borde azul claro */
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column; /* Cambiado a columna para mejor disposición */
+    transition: box-shadow 0.3s, transform 0.2s;
+}
+
+.tareas li:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px); /* Efecto de elevación al pasar el mouse */
+}
+
+/* Estilo para la información de la tarea */
+.tarea-info {
+    flex-grow: 1;
+}
+
+.tarea-info h3 {
+    margin: 0;
+    font-size: 20px;
+    color: #333;
+}
+
+.tarea-info p {
+    margin: 5px 0;
+    color: #666;
+}
+
+/* Estilo para el botón de marcar como completada */
+.tarea-info button {
+    background-color: #FF8C00; /* Color naranja brillante */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px; /* Aumentar el padding para un botón más grande */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s; /* Añadir transición para sombra */
+    margin-top: 10px; /* Espacio entre el texto y el botón */
+    font-weight: bold; /* Hacer el texto más grueso */
+    font-size: 16px; /* Aumentar el tamaño de la fuente */
+}
+
+.tarea-info button:hover {
+    background-color: #FF7F00; /* Color naranja más oscuro al pasar el mouse */
+    transform: scale(1.05); /* Efecto de aumento al pasar el mouse */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada al pasar el mouse */
+}
+
+.tarea-info button:active {
+    transform: scale(0.95); /* Efecto de reducción al hacer clic */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Sombra más pequeña al hacer clic */
+}
+
+/* Estilo para las personas asignadas */
+.personas {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #E6F7FF; /* Fondo azul muy claro */
+    border-radius: 5px;
+}
+
+.personas h4 {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+}
+
+.personas ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.personas li {
+    background-color: #ffffff; /* Fondo blanco para las personas */
+    border-radius: 5px;
+    padding: 5px;
+    margin-top: 5px;
+    border: 1px solid #B0E0E6; /* Borde azul claro */
+}
+
+/* Estilo para las habilidades */
+.personas li ul {
+    list-style-type: disc; /* Estilo de lista para habilidades */
+    padding-left: 20px; /* Sangría para la lista de habilidades */
+}
+
+.personas li ul li {
+    color: #666; /* Color para las habilidades */
+}
+
+
+
+.btn-eliminar:hover {
+    background-color: #c82333; /* Color rojo más oscuro al pasar el mouse */
+    transform: scale(1.05); /* Efecto de aumento al pasar el mouse */
+}
+
+/* Estilo para el ícono de papelera */
+.fa-trash, .fa-x {
+    color: #dc3545; /* Color rojo para el ícono */
+    cursor: pointer; /* Cambiar el cursor al pasar el mouse */
+   
+}
+
+.fa-trash:hover {
+    color: #c82333; /* Color rojo más oscuro al pasar el mouse */
+    transform: scale(1.1); /* Efecto de aumento al pasar el mouse */
+}

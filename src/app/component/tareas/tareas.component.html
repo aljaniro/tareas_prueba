@@ -1,0 +1,126 @@
+<form [formGroup]="tareaForm" (ngSubmit)="agregarTarea()">
+  <div class="form-group">
+    <label for="nombre">Nombre de la Tarea</label>
+    <input
+      type="text"
+      class="form-control"
+      id="nombre"
+      formControlName="nombre"
+    />
+    <div
+      *ngIf="
+        tareaForm.get('nombre')?.invalid &&
+        (tareaForm.get('nombre')?.touched || tareaForm.get('nombre')?.dirty)
+      "
+    >
+      <span *ngIf="tareaForm.get('nombre')?.errors?.['required']">
+        <span class="badge text-bg-info"
+          >El nombre de la tarea es requerido.</span
+        >
+      </span>
+      <span *ngIf="tareaForm.get('nombre')?.errors?.['minlength']">
+        <span class="badge text-bg-info"
+          >El nombre debe tener al menos 5 caracteres.</span
+        >
+      </span>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="fechaLimite">Fecha Límite</label>
+    <input
+      type="date"
+      class="form-control"
+      id="fechaLimite"
+      formControlName="fechaLimite"
+    />
+    <div
+      *ngIf="
+        tareaForm.get('fechaLimite')?.invalid &&
+        (tareaForm.get('fechaLimite')?.touched ||
+          tareaForm.get('fechaLimite')?.dirty)
+      "
+    >
+      <span *ngIf="tareaForm.get('fechaLimite')?.errors?.['required']">
+        <span class="badge text-bg-info">La fecha límite es requerida.</span>
+      </span>
+    </div>
+  </div>
+
+  <div formArrayName="personas">
+    <div
+      *ngFor="let persona of personas.controls; let i = index"
+      [formGroupName]="i"
+    >
+      <label for="nombreCompleto">Nombre Completo:</label>
+      <input id="nombreCompleto" formControlName="nombreCompleto" />
+      <div
+        *ngIf="
+          personas.at(i).get('nombreCompleto')?.invalid &&
+          (personas.at(i).get('nombreCompleto')?.touched ||
+            personas.at(i).get('nombreCompleto')?.dirty)
+        "
+      >
+        <span
+          *ngIf="personas.at(i).get('nombreCompleto')?.errors?.['required']"
+        >
+          <span class="badge text-bg-info"
+            >El nombre completo es requerido.</span
+          >
+        </span>
+        <span
+          *ngIf="personas.at(i).get('nombreCompleto')?.errors?.['minlength']"
+        >
+          <span class="badge text-bg-info"
+            >El nombre completo debe tener al menos 5 caracteres.</span
+          >
+        </span>
+      </div>
+
+      <label for="edad">Edad:</label>
+      <input
+        id="edad"
+        formControlName="edad"
+        type="number"
+        style="width: 50px; padding: 5px"
+      />
+      <span
+        *ngIf="
+          personas.at(i).get('edad')?.invalid &&
+          (personas.at(i).get('edad')?.touched ||
+            personas.at(i).get('edad')?.dirty)
+        "
+        ><span *ngIf="personas.at(i).get('edad')?.errors?.['required']">
+          <span class="badge text-bg-info">La edad es requerida.</span>
+        </span>
+        <span *ngIf="personas.at(i).get('edad')?.errors?.['min']">
+          <span class="badge text-bg-info" style="margin-left: 5px"
+            >La edad debe ser al menos 18 años.</span
+          >
+        </span>
+      </span>
+
+      <div formArrayName="habilidades">
+        <div
+          *ngFor="let habilidad of getHabilidades(i).controls; let j = index"
+          style="margin-top: 5px"
+        >
+          HABILIDAD {{ j + 1 }} <input [formControlName]="j" />
+          <div
+            *ngIf="habilidad.invalid && (habilidad.touched || habilidad.dirty)"
+          >
+            <span *ngIf="habilidad.errors?.['required']">
+              <span class="badge text-bg-info">La habilidad es requerida.</span>
+            </span>
+          </div>
+        </div>
+        <button type="button" (click)="agregarHabilidad(i)">
+          Añadir Habilidad
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <button type="button" (click)="agregarPersona()">Añadir Persona</button>
+  <button type="submit" [disabled]="tareaForm.invalid">Crear Tarea</button>
+</form>

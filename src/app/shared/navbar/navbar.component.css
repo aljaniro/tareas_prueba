@@ -1,0 +1,66 @@
+/* navbar.component.css */
+
+/* Estilo general para la barra de navegación */
+.navbar {
+    background-color: #343a40; /* Color de fondo oscuro */
+    padding: 1rem; /* Espaciado interno */
+    display: flex; /* Usar flexbox para alinear elementos */
+    justify-content: space-between; /* Espacio entre elementos */
+    align-items: center; /* Centrar verticalmente */
+}
+
+/* Estilo para los enlaces de navegación */
+.navbar a {
+    color: #141010; /* Color de texto blanco */
+    text-decoration: none; /* Sin subrayado */
+    padding: 0.5rem 1rem; /* Espaciado interno para los enlaces */
+    transition: background-color 0.3s; /* Transición suave para el hover */
+}
+
+/* Efecto hover para los enlaces */
+.navbar a:hover {
+    background-color: #495057; /* Color de fondo al pasar el mouse */
+    border-radius: 4px; /* Bordes redondeados */
+}
+
+/* Estilo para el título o logo */
+.navbar .logo {
+    font-size: 1.5rem; /* Tamaño de fuente más grande */
+    font-weight: bold; /* Negrita */
+}
+
+/* Estilo para el contenedor de los enlaces */
+.navbar .nav-links {
+    display: flex; /* Usar flexbox para los enlaces */
+}
+
+/* Estilo para el botón de menú (opcional) */
+.navbar .menu-button {
+    display: none; /* Ocultar por defecto */
+    background-color: transparent; /* Fondo transparente */
+    border: none; /* Sin borde */
+    color: #ffffff; /* Color de texto blanco */
+    font-size: 1.5rem; /* Tamaño de fuente */
+}
+
+/* Estilo para pantallas pequeñas */
+@media (max-width: 768px) {
+    .navbar .nav-links {
+        display: none; /* Ocultar enlaces en pantallas pequeñas */
+        flex-direction: column; /* Cambiar a columna */
+        position: absolute; /* Posicionamiento absoluto */
+        top: 60px; /* Ajustar la posición */
+        left: 0; /* Alinear a la izquierda */
+        background-color: #343a40; /* Color de fondo */
+        width: 100%; /* Ancho completo */
+        z-index: 1000; /* Asegurarse de que esté por encima */
+    }
+
+    .navbar .nav-links.active {
+        display: flex; /* Mostrar enlaces cuando están activos */
+    }
+
+    .navbar .menu-button {
+        display: block; /* Mostrar botón de menú en pantallas pequeñas */
+    }
+}
